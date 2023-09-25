@@ -2,6 +2,7 @@
 using HerrenHaus_API.Models;
 using HerrenHaus_API.Models.Dto;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq.Expressions;
 
@@ -112,6 +113,25 @@ namespace HerrenHaus_API.Controllers
             Haus.price = herrenHausDto.price;
             return NoContent();
 
+        }
+
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [HttpPatch("{id:int}")]
+        public IActionResult UpdatePartialHerrenHaus(int id, JsonPatchDocument<HerrenHausDto> jsonPatch) {
+            if(id==0 || jsonPatch == null)
+            {
+                return BadRequest();
+            }
+            var Haus = HerrenHausStore.HerrenHausList.FirstOrDefault(u => u.ID == id);
+            if (Haus == null)
+            {
+                return NotFound();
+            }
+            jsonPatch.ApplyTo(Haus);
+            return NoContent();
+                 
         }
 
     }
