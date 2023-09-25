@@ -9,5 +9,7 @@ namespace HerrenHaus_API.Models.Dto
         [Required]
         [MaxLength(20)]
         public string Name { get; set; }
+        public string Location { get; set; }
+        public string price { get; set; }
     }
 }

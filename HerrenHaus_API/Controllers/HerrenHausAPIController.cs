@@ -90,5 +90,31 @@ namespace HerrenHaus_API.Controllers
             HerrenHausStore.HerrenHausList.Remove(Haus);
             return NoContent();
         }
+
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [HttpPut("{id:int}")]
+        public IActionResult UpdateHerrenHaus(int id, [FromBody] HerrenHausDto herrenHausDto) {
+        
+            if(herrenHausDto == null || herrenHausDto.ID != id)
+            {
+                return BadRequest();
+            }
+
+            var Haus = HerrenHausStore.HerrenHausList.FirstOrDefault(u => u.ID == id);
+            if(Haus == null)
+            {
+                return NotFound();
+            }
+            Haus.Name = herrenHausDto.Name;
+            Haus.Location = herrenHausDto.Location ;
+            Haus.price = herrenHausDto.price;
+            return NoContent();
+
+        }
+
     }
+
+    
 }

@@ -6,8 +6,8 @@ namespace HerrenHaus_API.Data
     {
         public static List< HerrenHausDto> HerrenHausList = new List<HerrenHausDto>()
             {
-                new HerrenHausDto { ID=1,Name="HerrenHaus am Strand"},
-                new HerrenHausDto { ID=2,Name="HerrenHaus im Berg"}
+                new HerrenHausDto { ID=1,Name="HerrenHaus am Strand",Location="Munish",price="10M $"},
+                new HerrenHausDto { ID=2,Name="HerrenHaus im Berg",Location="Frankfort",price="20M $"}
             };
     }
 }
