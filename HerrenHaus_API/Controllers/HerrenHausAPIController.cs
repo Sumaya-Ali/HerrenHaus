@@ -8,12 +8,21 @@ using System.Linq.Expressions;
 
 namespace HerrenHaus_API.Controllers
 {
+    /// <summary>
+    /// This API is for HerrenHaus in Germany
+    /// </summary>
     [Route("api/HerrenHausAPI")]
     // [Route("HerrenHausAPI")]
     // [Route("api/[controller]")]
     [ApiController]
     public class HerrenHausAPIController : ControllerBase
     {
+        /// <summary>
+        /// Get all HerrenHaus
+        /// </summary>
+        /// <returns>
+        /// List of HerrenHaus
+        /// </returns>
         [HttpGet()]
         //[ProducesResponseType(200)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -21,6 +30,15 @@ namespace HerrenHaus_API.Controllers
         {
             return Ok(HerrenHausStore.HerrenHausList);
         }
+
+        /// <summary>
+        /// Get HerrenHaus By Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>
+        /// HerrenHaus Object
+        /// </returns>
+        /// 
         //  [HttpGet("id")]
         [HttpGet("{id:int}", Name = "GetHerrenHausByID")]
         //[ProducesResponseType(200,Type=typeof(HerrenHausDto))]
@@ -42,6 +60,14 @@ namespace HerrenHaus_API.Controllers
             }
             return Ok(Haus);
         }
+
+        /// <summary>
+        /// Create New HerrenHaus object
+        /// </summary>
+        /// <param name="herrenHausDto"></param>
+        /// <returns>
+        /// the created HerrenHaus object
+        /// </returns>
         [HttpPost()]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -73,6 +99,13 @@ namespace HerrenHaus_API.Controllers
             return CreatedAtRoute("GetHerrenHausByID", new { id = herrenHausDto.ID }, herrenHausDto);
         }
 
+        /// <summary>
+        /// Delete HerrenHaus object by Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>
+        /// No Content
+        /// </returns>
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -92,6 +125,14 @@ namespace HerrenHaus_API.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Update HerrenHaus object
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="herrenHausDto"></param>
+        /// <returns>
+        /// No Content
+        /// </returns>
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -115,6 +156,14 @@ namespace HerrenHaus_API.Controllers
 
         }
 
+        /// <summary>
+        /// Update partial HerrenHaus object
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="jsonPatch"></param>
+        /// <returns>
+        /// No Content
+        /// </returns>
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
