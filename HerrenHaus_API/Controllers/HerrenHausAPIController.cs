@@ -15,6 +15,8 @@ namespace HerrenHaus_API.Controllers
     // [Route("HerrenHausAPI")]
     // [Route("api/[controller]")]
     [ApiController]
+    [Produces("application/json","application/xml")] //customiz media type in swagger requests to avoid status code
+                                                     //406 Status406NotAcceptable
     public class HerrenHausAPIController : ControllerBase
     {
         /// <summary>

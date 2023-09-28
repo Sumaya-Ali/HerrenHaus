@@ -5,7 +5,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers().AddNewtonsoftJson();
+builder.Services.AddControllers(options =>
+{
+    options.ReturnHttpNotAcceptable = true; // return 406 (not acceptable) when accept ='application/xml' & response is json 
+}).AddNewtonsoftJson().AddXmlDataContractSerializerFormatters(); //return json or xml response according to 'Accept' parameter in header request in postman
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 // Configure Swagger
