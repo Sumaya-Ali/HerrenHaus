@@ -19,6 +19,12 @@ namespace HerrenHaus_API.Controllers
                                                      //406 Status406NotAcceptable
     public class HerrenHausAPIController : ControllerBase
     {
+        private readonly ILogger<HerrenHausAPIController> logger;
+
+        public HerrenHausAPIController(ILogger<HerrenHausAPIController> logger)
+        {
+            this.logger = logger;
+        }
         /// <summary>
         /// Get all HerrenHaus
         /// </summary>
@@ -30,6 +36,7 @@ namespace HerrenHaus_API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<IEnumerable<HerrenHausDto>> GetAllHerrenHaus()
         {
+            logger.LogInformation("Get All HerrenHaus");
             return Ok(HerrenHausStore.HerrenHausList);
         }
 
@@ -53,6 +60,7 @@ namespace HerrenHaus_API.Controllers
         {
             if (id == 0)
             {
+                logger.LogError("Error when Get HerrenHaus By Id ={0}", id);
                 return BadRequest();
             }
             var Haus = HerrenHausStore.HerrenHausList.FirstOrDefault(u => u.ID == id);
