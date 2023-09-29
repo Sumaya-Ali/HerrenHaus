@@ -1,5 +1,6 @@
 using System.Reflection;
 using Microsoft.OpenApi.Models;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,6 +41,13 @@ builder.Services.AddSwaggerGen(options => {
 });
 // End Configure Swagger
 
+// Configer Serilog Logger
+Log.Logger = new LoggerConfiguration().MinimumLevel.Debug().WriteTo.
+    File("log/HerrenHausLog.txt", rollingInterval: RollingInterval.Day).CreateLogger();
+
+builder.Host.UseSerilog();
+
+// End Configer Serilog Logger
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
