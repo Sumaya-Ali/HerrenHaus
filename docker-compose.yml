@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  herrenhaus_api:
+    container_name: herrenhausapi_c1
+    ports:
+        - '4000:443'
+    image: ${DOCKER_REGISTRY-}herrenhausapi
+    build:
+      context: .
+      dockerfile: HerrenHaus_API\Dockerfile
