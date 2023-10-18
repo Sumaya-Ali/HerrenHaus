@@ -1,8 +1,10 @@
 # HerrenHaus
 
-Implementing CRUD operation (HttpGet/Post/Delete/Put/Patch)
-Implementing DTO object files to separate DB object models from the displayed data 
-Implementing Swagger API & documenting API & object model
+Implementing CRUD operation (HttpGet/Post/Delete/Put/Patch)    
+Implementing DTO object files to separate DB object models from the displayed data    
+Implementing Swagger API & documenting API & object model     
+In Addition to Docker & Integration Tests    
+
 ![Screenshot (142)](https://github.com/Sumaya-Ali/HerrenHaus/assets/52631071/aa360615-6f96-4938-96a4-9187043163ce)
 
 Add logging Service using (default/ SeriLog Nuget Package / customized logger using dependency injection)
