@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HerrenHaus_API", "HerrenHau
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{A7B10D9D-FD44-4A8D-90B8-09DFFC7AB5FD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HerrenHaus_API_IntegrationTests", "HerrenHaus_API_IntegrationTests\HerrenHaus_API_IntegrationTests.csproj", "{3905DBB5-D707-49D2-A6F2-9C00D977547D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HerrenHaus_API_Integration_Tests", "HerrenHaus_API_IntegrationTests\HerrenHaus_API_Integration_Tests.csproj", "{3905DBB5-D707-49D2-A6F2-9C00D977547D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
